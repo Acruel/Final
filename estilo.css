@@ -1,0 +1,79 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    padding-top: 60px; /* Espacio superior para dejar espacio al header */
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    width: 100%;
+    padding: 10px 0;
+    text-align: center;
+    position: fixed; /* Fijar el header en la parte superior */
+    top: 0; /* Alinear en la parte superior */
+    z-index: 1000; /* Asegurar que esté encima de otros elementos */
+}
+
+nav {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 200px; /* Ancho fijo del nav */
+    position: fixed; /* Fijar el nav en la posición izquierda */
+    left: 20px; /* Espacio a la izquierda */
+    top: 70px; /* Espacio desde el borde superior */
+    z-index: 900; /* Z-index menor que el header para que esté detrás */
+    margin: 5px; /* Margen de 5px alrededor del nav */
+    margin-top: 45px;
+}
+
+main {
+    margin-left: 240px; /* Dejar espacio a la izquierda del main para el nav */
+    max-width: 800px; /* Ancho máximo del contenido principal */
+    margin: 5px; /* Margen de 5px alrededor del main */
+    margin-bottom: 50px;
+}
+
+#productsContainer {
+    margin-top: 20px;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+form .form-group {
+    margin-bottom: 10px;
+}
+
+footer {
+    margin-top: auto; /* Empujar el footer hacia abajo */
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    width: 100%;
+    position: fixed; /* Fijar el footer en la parte inferior */
+    bottom: 0; /* Alinear en la parte inferior */
+    z-index: 1000; /* Asegurar que esté encima de otros elementos */
+}
+
+
+@media (max-width: 768px) {
+
+    
+    #mobileCreateButton {
+        display: block;
+        margin-top: 20px;
+        background-color: #007BFF;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+}

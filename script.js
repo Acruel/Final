@@ -58,7 +58,7 @@ function getAllProducts() {
         })
         .catch(error => console.error('Error al obtener productos:', error));
 }
-// Crear un nuevo producto (ejemplo)
+// Funcion de crear un producto nuevo
 function createProduct(titulo, precioPeso, precioDolar, fecha) {
     fetch(apiUrl, {
         method: 'POST',
@@ -69,12 +69,13 @@ function createProduct(titulo, precioPeso, precioDolar, fecha) {
         .then(data => {
             console.log('Respuesta al crear producto:', data);
             getAllProducts(); // Actualizar la lista de productos
+            window.location.href = "index.html";
         })
         .catch(error => console.error('Error al crear producto:', error));
 }
 
 
-// Modificar un producto existente
+// Funcion para modificar un produto 
 function updateProduct(idcod, titulo, precioPeso, precioDolar, fecha) {
     fetch(apiUrl, {
         method: 'PATCH',
@@ -84,9 +85,9 @@ function updateProduct(idcod, titulo, precioPeso, precioDolar, fecha) {
         .then(response => response.text())
         .then(data => {
             console.log('Respuesta al modificar producto:', data);
-            getAllProducts(); // Actualizar la lista de productos
+            getAllProducts(); // Actualizar productos
         })
-        .catch(error => console.error('Error al modificar producto:', error));
+        .catch(error => console.error('Error:', error));
 }
 window.confirmDelete = function(idcod) {
     if (confirm('¿Estás seguro que deseas eliminar este producto?')) {
