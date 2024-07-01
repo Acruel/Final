@@ -9,7 +9,7 @@ function getAllProducts() {
     fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
-            productsContainer.innerHTML = ''; // Limpiar el contenedor
+            productsContainer.innerHTML = ''; 
             data.forEach(product => {
                 const productDiv = document.createElement('div');
                 productDiv.className = 'product';
@@ -68,7 +68,7 @@ function createProduct(titulo, precioPeso, precioDolar, fecha) {
         .then(response => response.text())
         .then(data => {
             console.log('Respuesta al crear producto:', data);
-            getAllProducts(); // Actualizar la lista de productos
+            getAllProducts(); 
             window.location.href = "index.html";
         })
         .catch(error => console.error('Error al crear producto:', error));
@@ -85,7 +85,7 @@ function updateProduct(idcod, titulo, precioPeso, precioDolar, fecha) {
         .then(response => response.text())
         .then(data => {
             console.log('Respuesta al modificar producto:', data);
-            getAllProducts(); // Actualizar productos
+            getAllProducts(); 
         })
         .catch(error => console.error('Error:', error));
 }
@@ -105,11 +105,11 @@ function deleteProduct(idcod) {
         .then(response => response.text())
         .then(data => {
             console.log('Respuesta al eliminar producto:', data);
-            getAllProducts(); // Actualizar la lista de productos
+            getAllProducts(); 
         })
         .catch(error => console.error('Error al eliminar producto:', error));
 }
-// Manejar el envío del formulario de creación de producto
+// Envío del form
 createProductForm.addEventListener('submit', (event) => {
     event.preventDefault();
     const titulo = createProductForm.titulo.value;
@@ -119,18 +119,18 @@ createProductForm.addEventListener('submit', (event) => {
 
     createProduct(titulo, precioPeso, precioDolar, fecha);
 
-    // Limpiar el formulario después de enviar
+   
     createProductForm.reset();
 });
 
 
-// Mostrar el formulario de actualización con los datos del producto a modificar
+// mostrar el formulario con los datos del producto
 window.showUpdateForm = function(idcod, titulo, precioPeso, precioDolar, fecha, button) {
     const updateForm = button.nextElementSibling;
     updateForm.style.display = 'block';
 };
 
-// Ocultar el formulario de actualización
+// No mostrar form
 window.hideUpdateForm = function(button) {
     const updateForm = button.parentElement;
     updateForm.style.display = 'none';
@@ -138,5 +138,4 @@ window.hideUpdateForm = function(button) {
 };
 
 getAllProducts();
-// Inicializar la lista de productos al cargar la página
 document.addEventListener('DOMContentLoaded', getAllProducts);
